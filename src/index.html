@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buure für Biendli</title>
+<meta name="description" content="Wildbienen zählen zu unseren wichtigsten Bestäubern und vielen Landwirtschaftsbetrieben ist es ein Anliegen, sie zu fördern – wir unterstützen sie dabei.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=Newsreader:opsz,wght@6..72,500&display=swap">
+<style>
+:root {
+  /* Logo values sampled from the supplied artwork */
+  --green-dark: #2E4229;
+  --green-deep: #1E2D1A;
+  --green-pale: #EBF0E4;
+  --olive: #929D5B;
+  --terracotta: #B4532A;      /* buttons, rules, borders (white text 5:1) */
+  --terracotta-ink: #9A4421;  /* small text on light surfaces */
+  --cream: #F8F5EF;
+  --sand: #E9E0D2;
+  --text: #1F2A1A;
+  --white: #FFFFFF;
+  --line: #E4DED2;
+
+  --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-sans: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --container: 75rem;
+  --gutter: 1.5rem;
+  --section-y: 3.75rem;
+  --radius: 0.625rem;
+  --radius-lg: 0.75rem;
+}
+@media (min-width: 48rem) { :root { --gutter: 3rem; --section-y: 5.5rem; } }
+@media (min-width: 64rem) { :root { --section-y: 7rem; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; height: auto; }
+p { margin: 0 0 1.1em; }
+p:last-child { margin-bottom: 0; }
+a { color: inherit; }
+h1, h2, h3 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  overflow-wrap: break-word;
+}
+h1 { font-size: clamp(1.875rem, 1.35rem + 1.6vw, 2.875rem); line-height: 1.12; }
+h2 { font-size: clamp(1.625rem, 1.2rem + 1.3vw, 2.375rem); }
+h3 { font-size: clamp(1.375rem, 1.3rem + 0.25vw, 1.5rem); line-height: 1.25; }
+@media (max-width: 37.5rem) { h1, h2, h3 { hyphens: auto; -webkit-hyphens: auto; } }
+
+:focus-visible { outline: 3px solid var(--terracotta); outline-offset: 3px; border-radius: 4px; }
+.on-dark :focus-visible { outline-color: var(--cream); }
+
+.container { width: 100%; max-width: calc(var(--container) + 2 * var(--gutter)); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--section-y); scroll-margin-top: 6rem; }
+
+.skip-link {
+  position: absolute; left: 1rem; top: -4rem; z-index: 100;
+  padding: 0.75rem 1rem; border-radius: var(--radius);
+  background: var(--green-dark); color: var(--white); text-decoration: none;
+}
+.skip-link:focus { top: 1rem; }
+
+/* Section label */
+.label {
+  display: inline-flex; align-items: center; gap: 0.75rem;
+  margin: 0 0 1.25rem;
+  font-size: 0.8125rem; font-weight: 500; line-height: 1.3;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--terracotta-ink);
+}
+.label::before { content: ""; flex: none; width: 1.75rem; height: 2px; background: currentColor; }
+.label--light { color: var(--cream); }
+
+.lead { font-size: 1.1875rem; line-height: 1.55; }
+@media (min-width: 64rem) { .lead { font-size: 1.25rem; } }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 3rem; padding: 0.75rem 1.375rem;
+  border: 2px solid transparent; border-radius: var(--radius);
+  font: 500 1rem/1.2 var(--font-sans);
+  text-decoration: none; cursor: pointer;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+.btn--primary { background: var(--green-dark); color: var(--white); }
+.btn--primary:hover { background: var(--green-deep); }
+.btn--accent { background: var(--terracotta); color: var(--white); }
+.btn--accent:hover { background: #9A4421; }
+.btn--light { background: var(--white); color: var(--green-dark); }
+.btn--light:hover { background: var(--cream); }
+
+/* Placeholder frames (to be replaced by client photography) */
+.ph {
+  position: relative; overflow: hidden;
+  background:
+    repeating-linear-gradient(135deg, rgba(255,255,255,.045) 0 1px, transparent 1px 14px),
+    linear-gradient(150deg, #CDB898 0%, #B08C66 30%, #8E7350 58%, #5E5A3C 100%);
+}
+.ph__tag {
+  position: absolute; z-index: 1;
+  max-width: calc(100% - 2rem);
+  padding: 0.5rem 0.75rem; border-radius: 0.5rem;
+  background: rgba(255,255,255,.92); color: var(--text);
+  font-size: 0.875rem; font-weight: 500; line-height: 1.35;
+}
+
+/* ---------- Header ---------- */
+.site-header { position: fixed; inset: 1rem 0 auto; z-index: 50; pointer-events: none; }
+.nav-pill {
+  pointer-events: auto;
+  position: relative;
+  display: flex; align-items: center; gap: 1.5rem;
+  min-height: 4.5rem; padding: 0.625rem 0.625rem 0.625rem 1.5rem;
+  background: var(--white); border-radius: 1.25rem;
+  box-shadow: 0 6px 24px rgba(30,45,26,.10);
+  transition: box-shadow .25s ease;
+}
+.is-scrolled .nav-pill { box-shadow: 0 10px 32px rgba(30,45,26,.18); }
+.brand { display: block; flex: none; margin-right: auto; border-radius: 6px; }
+.brand img { width: auto; height: 2.75rem; }
+.nav { display: flex; align-items: center; gap: 2rem; }
+.nav__list { display: flex; gap: 2rem; margin: 0; padding: 0; list-style: none; }
+.nav__link {
+  display: inline-block; padding: 0.5rem 0;
+  font-weight: 500; text-decoration: none; color: var(--text);
+  background: linear-gradient(var(--terracotta), var(--terracotta)) left calc(100% - 0.25rem) / 0 2px no-repeat;
+  transition: background-size .25s ease;
+}
+.nav__link:hover { background-size: 100% 2px; }
+.nav-toggle {
+  display: none; flex: none;
+  width: 2.75rem; height: 2.75rem; padding: 0;
+  border: 0; border-radius: var(--radius); background: var(--green-pale);
+  cursor: pointer;
+}
+.nav-toggle__bars, .nav-toggle__bars::before, .nav-toggle__bars::after {
+  display: block; width: 1.25rem; height: 2px; margin: auto;
+  background: var(--green-dark); border-radius: 2px;
+  transition: transform .2s ease, opacity .2s ease;
+}
+.nav-toggle__bars { position: relative; }
+.nav-toggle__bars::before, .nav-toggle__bars::after { content: ""; position: absolute; left: 0; }
+.nav-toggle__bars::before { top: -6px; }
+.nav-toggle__bars::after { top: 6px; }
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars { background: transparent; }
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars::before { transform: translateY(6px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars::after { transform: translateY(-6px) rotate(-45deg); }
+
+@media (max-width: 55rem) {
+  .nav-pill { min-height: 4rem; padding-left: 1.125rem; }
+  .brand img { height: 2.375rem; }
+  .nav-toggle { display: block; }
+  .nav {
+    display: none;
+    position: absolute; top: calc(100% + 0.5rem); left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 0.75rem;
+    padding: 1rem; background: var(--white); border-radius: 1.25rem;
+    box-shadow: 0 16px 40px rgba(30,45,26,.18);
+  }
+  .nav.is-open { display: flex; }
+  .nav__list { flex-direction: column; gap: 0; }
+  .nav__link { display: block; padding: 0.75rem 0.5rem; background: none; border-bottom: 1px solid var(--line); }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative; isolation: isolate;
+  display: flex; align-items: center;
+  min-height: 40rem;
+  padding-block: 9.5rem 9rem;
+  color: var(--white);
+  background: var(--green-deep);
+}
+.hero__media { position: absolute; inset: 0; z-index: -2; }
+.hero__media .ph, .hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: 75% center; }
+.hero__media .ph__tag { top: 50%; left: 75%; transform: translate(-50%, -50%); }
+.hero__media .ph::after {
+  content: ""; position: absolute; top: 18%; bottom: 18%; left: 58%; right: 8%;
+  border: 1.5px dashed rgba(255,255,255,.45); border-radius: var(--radius-lg);
+}
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(90deg,
+    rgba(30,45,26,.97) 0%, rgba(30,45,26,.94) 48%, rgba(30,45,26,.82) 60%, rgba(30,45,26,0) 84%);
+}
+@media (min-width: 60rem) and (max-width: 74.99rem) { .hero__content { max-width: 34rem; } }
+.hero__content { max-width: 44rem; }
+.badge {
+  display: inline-block; margin: 0 0 1.5rem;
+  padding: 0.375rem 0.875rem; border-radius: 999px;
+  background: var(--white); color: var(--green-dark);
+  font-size: 0.875rem; font-weight: 500; line-height: 1.4;
+}
+.hero h1 { max-width: 40rem; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2.25rem; }
+
+@media (max-width: 59.99rem) {
+  .hero { align-items: flex-end; min-height: 0; padding-block: 17rem 3.5rem; }
+  .hero__media .ph, .hero__media img { object-position: 80% top; }
+  .hero__media .ph__tag { top: 7.5rem; left: auto; right: 1.25rem; transform: none; max-width: 14rem; }
+  .hero__media .ph::after { top: 6rem; bottom: auto; height: 9rem; left: 35%; right: 0.75rem; }
+  .hero::before {
+    background: linear-gradient(0deg,
+      rgba(30,45,26,.98) 0%, rgba(30,45,26,.95) 62%, rgba(30,45,26,.55) 74%, rgba(30,45,26,0) 88%);
+  }
+}
+@media (max-width: 35.99rem) { .hero__actions .btn { flex: 1 1 100%; } }
+
+/* ---------- Über uns ---------- */
+.about__grid { display: grid; gap: 2.5rem; }
+.about__head {
+  position: relative; overflow: hidden;
+  padding: 2.5rem 1.75rem 3rem;
+  background: var(--sand); border-radius: var(--radius-lg);
+}
+.about__head h2 { position: relative; color: var(--green-dark); }
+.rule { display: block; width: 3.5rem; height: 3px; margin-top: 1.5rem; background: var(--terracotta); border-radius: 2px; }
+.furrows { position: absolute; pointer-events: none; fill: none; stroke-linecap: round; }
+.about__head .furrows { right: -1.5rem; bottom: -1.75rem; width: 11rem; stroke: var(--green-dark); opacity: .1; }
+.about__body { max-width: 42rem; }
+.about__body .lead { color: var(--text); }
+
+@media (min-width: 60rem) {
+  .about { padding-top: 0; }
+  .about__grid { grid-template-columns: minmax(0, 35fr) minmax(0, 65fr); gap: 4.5rem; align-items: start; }
+  .about__head { margin-top: -5rem; padding: 3.25rem 2.75rem 5.5rem; }
+  .about__body { padding-top: 3.5rem; }
+}
+
+/* ---------- Programm ---------- */
+.program { background: var(--green-pale); }
+.program__grid { display: grid; gap: 1.75rem; }
+.program__intro h2 { color: var(--green-dark); margin-bottom: 1.5rem; }
+.program__text { max-width: 40rem; }
+.callout {
+  margin: 3rem 0 0; padding: 1.5rem 1.75rem;
+  background: var(--cream);
+  border-left: 4px solid var(--terracotta); border-radius: 4px var(--radius-lg) var(--radius-lg) 4px;
+  font-size: 1.0625rem; color: var(--text);
+}
+@media (min-width: 60rem) {
+  .program__grid { grid-template-columns: minmax(0, 11fr) minmax(0, 12fr); column-gap: 5.5rem; }
+  .program__text { padding-top: 4.25rem; }
+  .callout { font-size: 1.125rem; padding: 1.75rem 2.25rem; }
+}
+
+.cards {
+  display: grid; gap: 2px;
+  margin: 2.5rem 0 0; padding: 0; list-style: none;
+}
+.card {
+  position: relative;
+  padding: 2rem 1.75rem 2.25rem;
+  background: var(--green-deep); color: var(--cream);
+}
+.cards > .card:first-child { border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+.cards > .card:last-child { border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
+.card__num {
+  display: block; margin-bottom: 1.5rem;
+  font-family: var(--font-serif); font-weight: 500;
+  font-size: 4rem; line-height: 0.9; letter-spacing: -0.02em;
+  color: rgba(196,108,64,.5);
+}
+.card h3 { margin-bottom: 0.875rem; color: var(--white); }
+.card p { font-size: 1rem; color: var(--cream); }
+@media (min-width: 52rem) {
+  .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cards > .card:first-child { border-radius: var(--radius-lg) 0 0 var(--radius-lg); }
+  .cards > .card:last-child { border-radius: 0 var(--radius-lg) var(--radius-lg) 0; }
+  .card { padding: 2.5rem 2.25rem 2.75rem; }
+  .card__num { font-size: 5.25rem; margin-bottom: 2.25rem; }
+}
+
+/* ---------- Newsletter ---------- */
+.newsletter { position: relative; isolation: isolate; color: var(--cream); background: var(--green-deep); }
+.newsletter__media { position: absolute; inset: 0; z-index: -2; }
+.newsletter__media .ph, .newsletter__media img { width: 100%; height: 100%; object-fit: cover; }
+.newsletter__media .ph__tag { top: 1rem; right: 1rem; z-index: 2; }
+.newsletter__media::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(100deg, rgba(30,45,26,.95) 0%, rgba(30,45,26,.88) 60%, rgba(30,45,26,.8) 100%);
+}
+.newsletter__grid { display: grid; gap: 2.5rem; align-items: center; }
+.newsletter h2 { color: var(--white); margin-bottom: 1.25rem; }
+.newsletter__text p { max-width: 34rem; font-size: 1.1875rem; }
+.form {
+  padding: 1.5rem;
+  background: rgba(248,245,239,.06);
+  border: 1px solid rgba(248,245,239,.18); border-radius: var(--radius-lg);
+}
+.form__label { display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--cream); }
+.form__row { display: flex; flex-direction: column; gap: 0.75rem; }
+.form__input {
+  flex: 1 1 auto; min-width: 0; min-height: 3rem;
+  padding: 0.75rem 1rem;
+  border: 2px solid transparent; border-radius: var(--radius);
+  background: var(--white); color: var(--text);
+  font: 400 1rem/1.3 var(--font-sans);
+}
+.form__input::placeholder { color: #5F6858; opacity: 1; }
+.form__input:focus-visible { outline: 3px solid var(--cream); outline-offset: 2px; }
+.form__hint { margin-top: 0.875rem; font-size: 0.875rem; color: rgba(248,245,239,.85); }
+@media (max-width: 47.99rem) { .newsletter { padding-top: calc(var(--section-y) + 3.5rem); } }
+@media (min-width: 36rem) {
+  .form { padding: 2rem; }
+  .form__row { flex-direction: row; }
+  .form__row .btn { flex: none; }
+}
+@media (min-width: 60rem) {
+  .newsletter__grid { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 4.5rem; }
+  .newsletter { padding-block: calc(var(--section-y) + 1rem); }
+}
+
+/* ---------- Partner ---------- */
+.partners { background: var(--white); text-align: center; }
+.partners h2 { color: var(--green-dark); max-width: 36rem; margin-inline: auto; }
+.logos { position: relative; margin-top: 3rem; }
+.logos__track {
+  display: flex; gap: 1.25rem;
+  margin: 0; padding: 0.25rem; list-style: none;
+  overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.logos__track::-webkit-scrollbar { display: none; }
+.logos__track > :first-child { margin-left: auto; }
+.logos__track > :last-child { margin-right: auto; }
+.logo-tile {
+  flex: 0 0 17rem; height: 8.5rem;
+  display: grid; place-items: center;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid var(--line); border-radius: var(--radius-lg);
+  scroll-snap-align: center;
+}
+.logo-tile img { width: var(--w, 100%); max-height: 100%; object-fit: contain; }
+.logos__controls { display: flex; justify-content: center; gap: 0.75rem; margin-top: 1.5rem; }
+.logos__controls[hidden] { display: none; }
+.logos__btn {
+  display: grid; place-items: center;
+  width: 2.75rem; height: 2.75rem; padding: 0;
+  border: 1.5px solid var(--green-dark); border-radius: var(--radius);
+  background: var(--white); color: var(--green-dark); cursor: pointer;
+}
+.logos__btn:hover:not(:disabled) { background: var(--green-dark); color: var(--white); }
+.logos__btn:disabled { opacity: .35; cursor: default; }
+.logos__btn svg { width: 1.125rem; height: 1.125rem; }
+@media (max-width: 59.99rem) { .logo-tile { flex-basis: 12.75rem; height: 7.5rem; padding: 1.25rem 1.5rem; } }
+@media (max-width: 30rem) { .logo-tile { flex-basis: 15rem; } }
+
+/* ---------- Footer ---------- */
+.site-footer { position: relative; overflow: hidden; background: var(--green-deep); color: var(--cream); font-size: 1rem; scroll-margin-top: 6rem; }
+.site-footer .furrows { right: -3rem; bottom: 3rem; width: 26rem; stroke: var(--cream); opacity: .05; }
+.footer__main { display: grid; gap: 2.75rem; padding-block: 4.5rem 3.5rem; }
+.footer__logo { height: 3.5rem; width: auto; margin-bottom: 1.75rem; }
+.footer__address { font-style: normal; line-height: 1.7; }
+.footer__address a { display: inline-block; margin-top: 0.75rem; text-underline-offset: 3px; }
+.footer__heading { margin-bottom: 1rem; font-size: 1.25rem; color: var(--white); }
+.footer__nav ul { margin: 0; padding: 0; list-style: none; }
+.footer__nav a { display: inline-block; padding: 0.3rem 0; text-decoration: none; }
+.footer__nav a:hover, .footer__legal a:hover, .footer__address a:hover { color: var(--white); text-decoration: underline; text-underline-offset: 3px; }
+.footer__bottom {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem;
+  padding-block: 1.5rem 2rem;
+  border-top: 1px solid rgba(248,245,239,.18);
+  font-size: 0.875rem;
+}
+.footer__legal { display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; margin: 0; padding: 0; list-style: none; }
+.footer__legal a { text-decoration: none; }
+.footer__host { height: 1.25rem; width: auto; opacity: .75; }
+@media (min-width: 48rem) {
+  .footer__main { grid-template-columns: minmax(0, 1fr) auto; padding-block: 5.5rem 4.5rem; }
+  .footer__nav { min-width: 14rem; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+<header class="site-header" id="top">
+  <div class="container">
+    <div class="nav-pill">
+      <a class="brand" href="#top">
+        <img src="assets/logo-bfb.png" alt="Buure für Biendli" width="503" height="128">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="hauptnavigation" aria-label="Menü">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+      </button>
+      <nav class="nav" id="hauptnavigation" aria-label="Hauptnavigation">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#ueber-uns">Über uns</a></li>
+          <li><a class="nav__link" href="#programm">Programm</a></li>
+          <li><a class="nav__link" href="#newsletter">Newsletter</a></li>
+        </ul>
+        <a class="btn btn--primary" href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main id="inhalt">
+
+  <section class="hero on-dark" aria-labelledby="hero-title">
+    <div class="hero__media">
+      <!-- Replace with: <img src="…" alt="…" width="…" height="…" fetchpriority="high"> -->
+      <div class="ph" role="img" aria-label="Hero photo: wild bee on flower, supplied by client" lang="en">
+        <span class="ph__tag" aria-hidden="true">Hero photo: wild bee on flower, supplied by client</span>
+      </div>
+    </div>
+    <div class="container">
+      <div class="hero__content">
+        <p class="badge">Wildbienenförderung</p>
+        <h1 id="hero-title">Wildbienen zählen zu unseren wichtigsten Bestäubern und vielen Landwirtschaftsbetrieben ist es ein Anliegen, sie zu fördern – wir unterstützen sie dabei.</h1>
+        <div class="hero__actions">
+          <a class="btn btn--accent" href="#ueber-uns">Mehr erfahren</a>
+          <a class="btn btn--light" href="#newsletter">Newsletter abonnieren</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section about" id="ueber-uns" aria-labelledby="about-title">
+    <div class="container about__grid">
+      <div class="about__head">
+        <p class="label">Über uns</p>
+        <h2 id="about-title">Ein Verein für Landwirtschaft und Wildbienen.</h2>
+        <span class="rule" aria-hidden="true"></span>
+        <svg class="furrows" viewBox="0 0 220 140" aria-hidden="true" focusable="false">
+          <path d="M8 132 C 60 70 130 44 214 40" stroke-width="12"/>
+          <path d="M40 140 C 86 96 146 76 214 72" stroke-width="12"/>
+          <path d="M84 146 C 120 120 166 106 214 104" stroke-width="12"/>
+        </svg>
+      </div>
+      <div class="about__body">
+        <p class="lead">Buure für Biendli ist ein unabhängiger, gemeinnütziger Verein mit Sitz im Kanton Zürich. Der Verein wurde 2023 gegründet, um die Wildbienenförderung im Kulturland zu stärken – allem voran im Kanton Zürich.</p>
+        <p>Wir verstehen uns als Partner für Landwirtschaftsbetriebe, die Wildbienen fördern möchten. Unser Beitrag dazu ist fundiertes Wissen über Wildbienen und ihre Ansprüche, verbunden mit einem guten Verständnis für die landwirtschaftliche Praxis.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section program" id="programm" aria-labelledby="program-title">
+    <div class="container">
+      <div class="program__grid">
+        <div class="program__intro">
+          <p class="label">Unser Programm</p>
+          <h2 id="program-title">Wildbienenförderung, die zum Betrieb passt.</h2>
+          <p class="lead">Wirksame Wildbienenförderung ist keine Hexerei. Sie in den ohnehin schon fordernden Betriebsalltag zu integrieren, kann jedoch eine Herausforderung sein. Buure für Biendli möchte genau hier unterstützen.</p>
+        </div>
+        <div class="program__text">
+          <p>So unterschiedlich die Voraussetzungen und Anforderungen auf den einzelnen Betrieben sind, so breit ist die Palette an Massnahmen, von denen Wildbienen profitieren können. Fliessen die Erfahrungen und Bedürfnisse der Betriebsleitenden und Fachwissen zur Wildbienenförderung auf Landwirtschaftsflächen gleichermassen ein, lassen sich für jeden Hof Massnahmen finden, die zum Betrieb passen, sich gut in die Abläufe integrieren lassen und ökologisch wirksam sind.</p>
+          <p>Dieses Zusammenkommen wollen wir künftig mit unseren Angeboten ermöglichen – von praxisnahen Einführungs- und Austauschformaten bis zu einzelbetrieblicher Beratung und Begleitung.</p>
+        </div>
+      </div>
+
+      <p class="callout">Das Programm und die konkreten Angebote befinden sich derzeit im Aufbau. Der Start ist für Frühjahr 2027 vorgesehen.</p>
+
+      <ul class="cards on-dark">
+        <li class="card">
+          <span class="card__num" aria-hidden="true">01</span>
+          <h3>Einführung &amp; Austausch</h3>
+          <p>Praxisnahe Formate für Landwirtschaftsbetriebe: Grundlagen der Wildbienenförderung, gemeinsam erarbeiten und voneinander lernen.</p>
+        </li>
+        <li class="card">
+          <span class="card__num" aria-hidden="true">02</span>
+          <h3>Einzelbetriebliche Beratung</h3>
+          <p>Massnahmen, die zum Betrieb passen: abgestimmt auf Voraussetzungen, Abläufe und ökologische Wirksamkeit.</p>
+        </li>
+        <li class="card">
+          <span class="card__num" aria-hidden="true">03</span>
+          <h3>Begleitung &amp; Wissen</h3>
+          <p>Fundiertes Fachwissen und kontinuierliche Unterstützung, damit Wildbienenförderung langfristig gelingt.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section newsletter on-dark" id="newsletter" aria-labelledby="newsletter-title">
+    <div class="newsletter__media">
+      <!-- Replace with: <img src="…" alt="" loading="lazy"> -->
+      <div class="ph" role="img" aria-label="Background photo: farmland or flower strip, supplied by client" lang="en">
+        <span class="ph__tag" aria-hidden="true">Background photo: farmland or flower strip, supplied by client</span>
+      </div>
+    </div>
+    <div class="container newsletter__grid">
+      <div class="newsletter__text">
+        <p class="label label--light">Auf dem Laufenden bleiben</p>
+        <h2 id="newsletter-title">Wir halten Sie auf dem Laufenden.</h2>
+        <p>Erfahren Sie direkt, wenn unsere ersten Angebote starten und es Neues von Buure für Biendli gibt.</p>
+      </div>
+      <!-- Placeholder: to be replaced by the Infomaniak newsletter embed -->
+      <form class="form" action="#" method="post">
+        <label class="form__label" for="nl-email">E-Mail-Adresse</label>
+        <div class="form__row">
+          <input class="form__input" id="nl-email" name="email" type="email" autocomplete="email" placeholder="E-Mail-Adresse" required aria-describedby="nl-hint">
+          <button class="btn btn--accent" type="submit">Newsletter abonnieren</button>
+        </div>
+        <p class="form__hint" id="nl-hint">Hinweis zum Datenschutz (Text folgt)</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="section partners" aria-labelledby="partners-title">
+    <div class="container">
+      <p class="label">Partner &amp; Unterstützung</p>
+      <h2 id="partners-title">Gemeinsam für Wildbienen auf Kulturland.</h2>
+      <div class="logos" data-logos>
+        <ul class="logos__track" data-logos-track aria-label="Partner">
+          <li class="logo-tile"><img src="assets/partner-bienenfachstelle.png" alt="Bienenfachstelle Kanton Zürich" width="530" height="160" loading="lazy" style="--w: 13rem"></li>
+          <li class="logo-tile"><img src="assets/partner-corymbo.png" alt="Stiftung Corymbo" width="944" height="120" loading="lazy" style="--w: 13.5rem"></li>
+          <li class="logo-tile"><img src="assets/partner-zbv.png" alt="Zürcher Bauernverband" width="220" height="160" loading="lazy" style="--w: 6.75rem"></li>
+        </ul>
+        <div class="logos__controls" data-logos-controls hidden>
+          <button class="logos__btn" type="button" data-dir="-1" aria-label="Vorherige Partner">
+            <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M12.5 4 6.5 10l6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="logos__btn" type="button" data-dir="1" aria-label="Nächste Partner">
+            <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m7.5 4 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer on-dark" id="kontakt">
+  <svg class="furrows" viewBox="0 0 220 140" aria-hidden="true" focusable="false">
+    <path d="M8 132 C 60 70 130 44 214 40" stroke-width="10"/>
+    <path d="M40 140 C 86 96 146 76 214 72" stroke-width="10"/>
+    <path d="M84 146 C 120 120 166 106 214 104" stroke-width="10"/>
+  </svg>
+  <div class="container">
+    <div class="footer__main">
+      <div>
+        <img class="footer__logo" src="assets/logo-bfb-negativ.png" alt="Buure für Biendli" width="503" height="128" loading="lazy">
+        <address class="footer__address">
+          c/o Zürcher Bauernverband<br>
+          Lagerstrasse 14<br>
+          8600 Dübendorf<br>
+          <a href="mailto:kav@buurefuerbiendli.ch">kav@buurefuerbiendli.ch</a>
+        </address>
+      </div>
+      <nav class="footer__nav" aria-labelledby="footer-nav-title">
+        <h2 class="footer__heading" id="footer-nav-title">Navigation</h2>
+        <ul>
+          <li><a href="#ueber-uns">Über uns</a></li>
+          <li><a href="#programm">Unser Programm</a></li>
+          <li><a href="#newsletter">Newsletter</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <ul class="footer__legal">
+        <li>© 2026 Buure für Biendli</li>
+        <li><a href="#">Datenschutzerklärung</a></li>
+        <li><a href="#">Impressum</a></li>
+      </ul>
+      <img class="footer__host" src="assets/infomaniak.png" alt="Infomaniak" width="228" height="64" loading="lazy">
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var header = document.querySelector('.site-header');
+  var toggle = header.querySelector('.nav-toggle');
+  var nav = header.querySelector('.nav');
+
+  function setMenu(open) {
+    toggle.setAttribute('aria-expanded', String(open));
+    nav.classList.toggle('is-open', open);
+  }
+  toggle.addEventListener('click', function () {
+    setMenu(toggle.getAttribute('aria-expanded') !== 'true');
+  });
+  nav.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('is-open')) { setMenu(false); toggle.focus(); }
+  });
+
+  function onScroll() { header.classList.toggle('is-scrolled', window.scrollY > 24); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Partner logos: plain row while they fit, slider with arrows once they overflow (up to 9 logos).
+  document.querySelectorAll('[data-logos]').forEach(function (root) {
+    var track = root.querySelector('[data-logos-track]');
+    var controls = root.querySelector('[data-logos-controls]');
+    var prev = controls.querySelector('[data-dir="-1"]');
+    var next = controls.querySelector('[data-dir="1"]');
+
+    function update() {
+      var overflow = track.scrollWidth > track.clientWidth + 1;
+      controls.hidden = !overflow;
+      if (overflow) track.setAttribute('tabindex', '0'); else track.removeAttribute('tabindex');
+      prev.disabled = track.scrollLeft <= 1;
+      next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 1;
+    }
+    controls.addEventListener('click', function (e) {
+      var btn = e.target.closest('button');
+      if (!btn) return;
+      var item = track.firstElementChild;
+      var step = item ? item.getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || 0) : track.clientWidth;
+      track.scrollBy({ left: step * Number(btn.dataset.dir), behavior: 'smooth' });
+    });
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    window.addEventListener('load', update);
+    update();
+  });
+})();
+</script>
+</body>
+</html>
