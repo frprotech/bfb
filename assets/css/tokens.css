@@ -1,0 +1,69 @@
+/* ==========================================================================
+   Buure für Biendli – Design tokens
+   Brand colours sampled from the logo artwork.
+   ========================================================================== */
+
+:root {
+  /* Colour */
+  --green-dark: #2E4229;       /* logo green – headings, primary button */
+  --green-deep: #1C2A18;       /* dark surfaces: hero, cards, newsletter, footer */
+  --green-pale: #EBF0E4;       /* programme surface */
+  --olive: #929D5B;            /* logo olive – decorative only */
+  --terracotta: #B4532A;       /* buttons, rules, borders (white text 5:1) */
+  --terracotta-ink: #9A4421;   /* small text on light surfaces (≥ 4.9:1) */
+  --terracotta-soft: #E9B597;  /* accent text on dark surfaces (≥ 8:1) */
+  --cream: #F8F5EF;            /* page background */
+  --sand: #E9E0D2;
+  --text: #1F2A1A;
+  --text-muted: #46513F;
+  --white: #FFFFFF;
+
+  --line: rgba(31, 42, 26, 0.14);
+  --line-light: rgba(248, 245, 239, 0.16);
+
+  /* Type */
+  --font-serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --fs-h1: clamp(1.75rem, 1.15rem + 2.3vw, 3rem);
+  --fs-h2: clamp(1.75rem, 1.25rem + 1.6vw, 2.75rem);
+  --fs-h3: clamp(1.375rem, 1.3rem + 0.3vw, 1.5rem);
+  --fs-lead: clamp(1.1875rem, 1.05rem + 0.45vw, 1.375rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.875rem;
+  --fs-label: 0.8125rem;
+
+  /* Layout */
+  --container: 75rem;
+  --gutter: 1.5rem;
+  --frame-inset: 0.5rem;
+  --section-y: 4.5rem;
+  --header-h: 4.5rem;
+
+  /* Shape */
+  --r-sm: 0.625rem;   /* buttons, inputs */
+  --r-md: 0.875rem;   /* cards, tiles */
+  --r-lg: 1.5rem;     /* large framed panels */
+  --r-xl: 2rem;
+
+  /* Elevation */
+  --shadow-nav: 0 1px 0 rgba(31, 42, 26, 0.04), 0 8px 30px -8px rgba(28, 42, 24, 0.18);
+  --shadow-soft: 0 1px 2px rgba(28, 42, 24, 0.04), 0 12px 40px -16px rgba(28, 42, 24, 0.18);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur: 0.9s;
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --gutter: 3rem;
+    --frame-inset: 0.75rem;
+    --section-y: 6.5rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  :root { --section-y: 8.5rem; }
+}
