@@ -1,0 +1,316 @@
+<title>BfB Footer-Optionen</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,500&display=swap">
+<style>
+/* Three footer variants for the Buure für Biendli landing page, shown as they sit at the end of the page.
+   Single brand look (no dark theme): colours are the client's logo palette. */
+:root {
+  color-scheme: light;
+  --green-dark: #2E4229;
+  --green-deep: #1C2A18;
+  --olive: #929D5B;
+  --terracotta: #B4532A;
+  --terracotta-ink: #9A4421;
+  --terracotta-soft: #E9B597;
+  --cream: #F8F5EF;
+  --sand: #E9E0D2;
+  --text: #1F2A1A;
+  --line-dark: rgba(31, 42, 26, 0.16);
+  --line-light: rgba(248, 245, 239, 0.16);
+
+  --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --sans: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --max: 75rem;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--text);
+  font: 400 1rem/1.6 var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; height: auto; }
+ul { margin: 0; padding: 0; list-style: none; }
+address { font-style: normal; }
+a { color: inherit; text-underline-offset: 0.22em; text-decoration-thickness: 1px; }
+:focus-visible { outline: 3px solid var(--terracotta); outline-offset: 3px; border-radius: 4px; }
+.dark :focus-visible { outline-color: var(--cream); }
+
+.wrap {
+  width: 100%;
+  max-width: calc(var(--max) + 6rem);
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px), 1.5rem);
+  padding-right: max(16px, env(safe-area-inset-right, 0px), 1.5rem);
+}
+@media (min-width: 48rem) {
+  .wrap {
+    padding-left: max(16px, env(safe-area-inset-left, 0px), 3rem);
+    padding-right: max(16px, env(safe-area-inset-right, 0px), 3rem);
+  }
+}
+
+/* ---------- Presentation chrome (not part of the footers) ---------- */
+.board-head { padding-block: 3.5rem 2.5rem; }
+.board-head h1 {
+  margin: 0;
+  font: 500 clamp(1.75rem, 1.3rem + 1.5vw, 2.5rem)/1.1 var(--serif);
+  letter-spacing: -0.02em;
+  color: var(--green-dark);
+}
+.board-head p { margin: 0.75rem 0 0; max-width: 40rem; color: #46513F; }
+
+.option { padding-top: 4.5rem; }
+.option:first-of-type { padding-top: 0; }
+.option__cap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  padding-bottom: 1.5rem;
+}
+.option__cap strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--terracotta-ink);
+}
+.option__cap strong::before { content: ""; width: 1.75rem; height: 2px; background: currentColor; }
+.option__cap span { color: #46513F; font-size: 0.9375rem; }
+.board-end { height: 4rem; }
+
+/* ---------- Shared footer parts ---------- */
+.f { position: relative; overflow: hidden; isolation: isolate; font-size: 1rem; }
+.f .wrap { position: relative; z-index: 2; }
+.f-logo { width: auto; }
+.f-legal { display: flex; flex-wrap: wrap; gap: 0.25rem 1.75rem; }
+.f-legal a { text-decoration: none; }
+.f-legal a:hover { text-decoration: underline; }
+.f-host { width: auto; height: 1.25rem; }
+.furrows { position: absolute; z-index: 1; pointer-events: none; fill: none; stroke-linecap: round; stroke-width: 14; }
+.grain {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  opacity: 0.09; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.dark { background: var(--green-deep); color: var(--cream); }
+.dark a:hover { color: #FFFFFF; }
+
+/* ---------- Option A · Kompakt ---------- */
+.fa__row {
+  display: grid;
+  gap: 2rem;
+  padding-block: 3.5rem 2.75rem;
+}
+.fa .f-logo { height: 3.25rem; }
+.fa__addr { line-height: 1.7; }
+.fa__mail { display: inline-block; }
+.fa__legal { display: grid; gap: 0.25rem; align-content: start; }
+.fa__legal a { text-decoration: none; }
+.fa__legal a:hover { text-decoration: underline; }
+.fa__bar {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;
+  padding-block: 1.25rem calc(1.5rem + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--line-light);
+  font-size: 0.875rem;
+}
+.fa .f-host { opacity: 0.75; }
+@media (min-width: 48rem) {
+  .fa__row { grid-template-columns: 1.3fr 1fr 1fr auto; align-items: start; column-gap: 3rem; }
+}
+
+/* ---------- Option B · Hell ---------- */
+.fb-outer { padding: 0 0.75rem 0.75rem; }
+.fb {
+  border-radius: 1.5rem;
+  background: var(--sand);
+  color: var(--text);
+}
+.fb .furrows { right: -3rem; bottom: -3rem; width: 26rem; stroke: var(--green-dark); opacity: 0.08; }
+.fb__top {
+  display: grid;
+  gap: 2.5rem;
+  padding-block: 3.5rem 3rem;
+}
+.fb .f-logo { height: 4rem; }
+.fb__cols { display: grid; gap: 2rem; }
+.fb__addr { line-height: 1.7; }
+.fb__mail {
+  font: 500 1.375rem/1.3 var(--serif);
+  letter-spacing: -0.01em;
+  color: var(--green-dark);
+  text-decoration-color: var(--terracotta);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.25em;
+  overflow-wrap: anywhere;
+}
+.fb__mail:hover { color: var(--terracotta-ink); }
+.fb__bar {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem;
+  padding-block: 1.25rem calc(1.75rem + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--line-dark);
+  font-size: 0.875rem;
+}
+.fb__bar-left { display: flex; flex-wrap: wrap; gap: 0.25rem 1.75rem; }
+.fb .f-legal a:hover { color: var(--terracotta-ink); }
+@media (min-width: 48rem) {
+  .fb__top { grid-template-columns: 1fr auto; align-items: start; padding-block: 4.5rem 4rem; }
+  .fb__cols { grid-template-columns: auto auto; column-gap: 4.5rem; }
+}
+
+/* ---------- Option C · Signatur ---------- */
+.fc .furrows { right: -6rem; bottom: 2rem; width: 40rem; stroke: var(--cream); opacity: 0.05; }
+.fc__main {
+  display: grid;
+  gap: 3rem;
+  padding-block: 4.5rem 3.5rem;
+}
+.fc .f-logo { height: 4.25rem; }
+.fc__contact { display: grid; gap: 2rem; align-content: start; }
+.fc__mail {
+  justify-self: start;
+  font: 500 clamp(1.625rem, 1.1rem + 2vw, 2.75rem)/1.15 var(--serif);
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  text-decoration: none;
+  background: linear-gradient(var(--terracotta-soft), var(--terracotta-soft)) left 100% / 100% 2px no-repeat;
+  padding-bottom: 0.15em;
+  overflow-wrap: anywhere;
+  transition: background-size 0.6s var(--ease), color 0.3s;
+}
+.fc__mail:hover { color: var(--terracotta-soft); }
+.fc__addr { line-height: 1.7; color: var(--cream); }
+.fc__bar {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem;
+  padding-block: 1.5rem calc(1.75rem + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--line-light);
+  font-size: 0.875rem;
+}
+.fc__bar-left { display: flex; flex-wrap: wrap; gap: 0.25rem 1.75rem; }
+.fc .f-host { opacity: 0.75; }
+@media (min-width: 48rem) {
+  .fc__main { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); align-items: start; column-gap: 4rem; padding-block: 6rem 4.5rem; }
+}
+</style>
+
+<header class="board-head wrap">
+  <h1>Footer-Optionen</h1>
+  <p>Drei Varianten mit identischem Inhalt: Logo, Adresse, E-Mail, rechtliche Links, Infomaniak und Copyright.</p>
+</header>
+
+<!-- ===================== Option A ===================== -->
+<section class="option" id="option-a" aria-label="Option A">
+  <div class="option__cap wrap"><strong>Option A · Kompakt</strong><span>Dunkelgrün, eine ruhige Zeile. Kleinster Platzbedarf.</span></div>
+
+  <footer class="f fa dark">
+    <span class="grain" aria-hidden="true"></span>
+    <div class="wrap">
+      <div class="fa__row">
+        <img class="f-logo" src="assets/img/logo-bfb-negativ.png" alt="Buure für Biendli" width="755" height="192">
+        <address class="fa__addr">
+          Buure für Biendli<br>
+          ℅ Zürcher Bauernverband<br>
+          Lagerstrasse 14<br>
+          8600 Dübendorf
+        </address>
+        <div><a class="fa__mail" href="mailto:kav@buurefuerbiendli.ch">kav@buurefuerbiendli.ch</a></div>
+        <ul class="fa__legal">
+          <li><a href="#">Datenschutzerklärung</a></li>
+          <li><a href="#">Impressum</a></li>
+        </ul>
+      </div>
+      <div class="fa__bar">
+        <span>© 2026 Buure für Biendli</span>
+        <img class="f-host" src="assets/img/infomaniak.png" alt="Infomaniak" width="228" height="64">
+      </div>
+    </div>
+  </footer>
+</section>
+
+<!-- ===================== Option B ===================== -->
+<section class="option" id="option-b" aria-label="Option B">
+  <div class="option__cap wrap"><strong>Option B · Hell</strong><span>Sandfarbene Fläche mit farbigem Logo. Leicht und nahbar, bricht das Grün der Seite.</span></div>
+
+  <div class="fb-outer">
+    <footer class="f fb">
+      <svg class="furrows" viewBox="0 0 320 200" aria-hidden="true" focusable="false">
+        <path d="M10 196 C 70 112 170 66 316 58"/>
+        <path d="M58 204 C 112 146 196 112 316 104"/>
+        <path d="M118 210 C 164 174 232 152 316 148"/>
+      </svg>
+      <div class="wrap">
+        <div class="fb__top">
+          <img class="f-logo" src="assets/img/logo-bfb.png" alt="Buure für Biendli" width="755" height="192">
+          <div class="fb__cols">
+            <address class="fb__addr">
+              Buure für Biendli<br>
+              ℅ Zürcher Bauernverband<br>
+              Lagerstrasse 14<br>
+              8600 Dübendorf
+            </address>
+            <div><a class="fb__mail" href="mailto:kav@buurefuerbiendli.ch">kav@buurefuerbiendli.ch</a></div>
+          </div>
+        </div>
+        <div class="fb__bar">
+          <div class="fb__bar-left">
+            <span>© 2026 Buure für Biendli</span>
+            <ul class="f-legal">
+              <li><a href="#">Datenschutzerklärung</a></li>
+              <li><a href="#">Impressum</a></li>
+            </ul>
+          </div>
+          <img class="f-host" src="assets/img/infomaniak-dark.png" alt="Infomaniak" width="228" height="64">
+        </div>
+      </div>
+    </footer>
+  </div>
+</section>
+
+<!-- ===================== Option C ===================== -->
+<section class="option" id="option-c" aria-label="Option C">
+  <div class="option__cap wrap"><strong>Option C · Signatur</strong><span>Dunkelgrün mit E-Mail als grosser Typografie. Der markanteste Abschluss.</span></div>
+
+  <footer class="f fc dark">
+    <span class="grain" aria-hidden="true"></span>
+    <svg class="furrows" viewBox="0 0 320 200" aria-hidden="true" focusable="false">
+      <path d="M10 196 C 70 112 170 66 316 58"/>
+      <path d="M58 204 C 112 146 196 112 316 104"/>
+      <path d="M118 210 C 164 174 232 152 316 148"/>
+    </svg>
+    <div class="wrap">
+      <div class="fc__main">
+        <img class="f-logo" src="assets/img/logo-bfb-negativ.png" alt="Buure für Biendli" width="755" height="192">
+        <div class="fc__contact">
+          <a class="fc__mail" href="mailto:kav@buurefuerbiendli.ch">kav@buurefuerbiendli.ch</a>
+          <address class="fc__addr">
+            Buure für Biendli<br>
+            ℅ Zürcher Bauernverband<br>
+            Lagerstrasse 14<br>
+            8600 Dübendorf
+          </address>
+        </div>
+      </div>
+      <div class="fc__bar">
+        <div class="fc__bar-left">
+          <span>© 2026 Buure für Biendli</span>
+          <ul class="f-legal">
+            <li><a href="#">Datenschutzerklärung</a></li>
+            <li><a href="#">Impressum</a></li>
+          </ul>
+        </div>
+        <img class="f-host" src="assets/img/infomaniak.png" alt="Infomaniak" width="228" height="64">
+      </div>
+    </div>
+  </footer>
+</section>
+<div class="board-end" aria-hidden="true"></div>
